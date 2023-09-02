@@ -3,9 +3,11 @@
   "version": "1.0.1",
   "description": "enforce quota for calling external services",
   "main": "dist/index",
-  "type": "dist/index",
+  "types": "dist/index",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && tsc",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
