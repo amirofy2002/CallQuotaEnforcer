@@ -1,5 +1,5 @@
 import { Subject } from "rxjs";
-import { Command } from "../../../core/types/Command";
+import { Command } from "../../../core/types/command";
 
 const commandBus = new Subject<Command>();
 

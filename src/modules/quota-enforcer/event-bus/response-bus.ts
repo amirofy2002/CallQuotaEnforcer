@@ -1,5 +1,5 @@
 import { Subject } from "rxjs";
-import { ResponseCommand } from "../../../core/types/Response";
+import { ResponseCommand } from "../../../core/types/response";
 
 const responseBus = new Subject<ResponseCommand>();
 

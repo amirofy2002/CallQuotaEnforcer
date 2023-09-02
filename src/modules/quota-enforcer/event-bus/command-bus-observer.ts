@@ -1,6 +1,6 @@
 import { Observer } from "rxjs";
 import responseBus from "./response-bus";
-import { Command } from "../../../core/types/Command";
+import { Command } from "../../../core/types/command";
 import { ScheduledMethodOptions } from "../../../core/types/async-function.options";
 import { IScheduledClass } from "../../../core/types/scheduled-class.interface";
 
