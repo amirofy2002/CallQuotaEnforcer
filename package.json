@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/amirofy2002/CallQuotaEnforcer#readme",
   "dependencies": {
-    "@nestjs/common": "^10.2.4",
     "node-cache": "^5.1.2",
     "rxjs": "^7.8.1"
   },
