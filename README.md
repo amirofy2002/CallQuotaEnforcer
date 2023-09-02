@@ -2,7 +2,7 @@
 
 Enforce quota for calling external services
 
-# What is was the problem, what is supposed to be resolved?
+# What is the problem, what is supposed to be resolved?
 
 In certain situations, you may find it necessary to have control over the way you call external services. To address this, it becomes important to manage the frequency of your calls to these external servers. This package aims to provide a seamless solution to help you effectively manage and control your calls to external services without any hassle. ;)
 
