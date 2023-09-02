@@ -1,8 +1,9 @@
 import { Injectable } from "@nestjs/common";
 import { interval } from "rxjs";
 import { CacheAbstract } from "../../core/cache/core/cache.abstract";
+import { IRateLimiter } from "../../core/types/rate-limiter.interface";
 @Injectable()
-export class RateLimiterService {
+export class RateLimiterService implements IRateLimiter {
   cacheKey = `c`;
   constructor(
     private name: string,
@@ -28,7 +29,7 @@ export class RateLimiterService {
     });
   }
 
-  reset() {
+  private reset() {
     this.cache.setWeight(this.cacheKey, 0);
   }
 }
