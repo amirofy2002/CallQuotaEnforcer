@@ -5,6 +5,7 @@ import { IScheduledClass } from "../../../core/types/scheduled-class.interface";
 import { ScheduledClassOptions } from "../../../core/types/scheduled-class.options";
 import { SCHEDULED_CLASS_SYMBOLS } from "../../../core/types/symols";
 import { generateRandomString } from "../../../core/util/get-random-string";
+import { MemoryCache } from "../cache/memory-cache";
 
 export function ScheduledClass(options: ScheduledClassOptions) {
   return function afterObjectCreation<T extends { new (...args: any[]): {} }>(
@@ -27,7 +28,9 @@ export function ScheduledClass(options: ScheduledClassOptions) {
           this.__id__,
           this.___getDuration(),
           options.interval.maxWeight,
-          options.interval.cache
+          options.interval.cache == "MEMORY"
+            ? new MemoryCache()
+            : new MemoryCache()
         );
       }
 

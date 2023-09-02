@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { interval } from "rxjs";
-import { CacheAbstract } from "../../core/cache/core/cache.abstract";
+import { CacheAbstract } from "../../core/types/cache.abstract";
 import { IRateLimiter } from "../../core/types/rate-limiter.interface";
 @Injectable()
 export class RateLimiterService implements IRateLimiter {
