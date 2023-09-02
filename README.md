@@ -4,15 +4,15 @@ Enforce quota for calling external services
 
 # What is was the problem, what is supposed to be resolved?
 
-Sometimes, you may want to control how to call external services. Regarding to control this situation, you will need to control how may times you can call exteral services ( servers ). This package tries to resolve this issue for you without trouble. ;)
+In certain situations, you may find it necessary to have control over the way you call external services. To address this, it becomes important to manage the frequency of your calls to these external servers. This package aims to provide a seamless solution to help you effectively manage and control your calls to external services without any hassle. ;)
 
 ## Decorators
 
-For using this service you have to import two decorators to annonate you classes and methods respectively.
+To utilize this service, you will need to import two decorators that will allow you to annotate your classes and methods accordingly.
 
     import { ScheduledClass, ScheduledMethod } from 'call-quota-enforcer';
 
-for applying quota for you class you have to annotate your class with `ScheduledClass` decorator. Moreover, you need to annotate your methods which use defined quota must be annotated using `ScheduledMethod`
+To implement a quota for your class, you will need to annotate your class with the `ScheduledClass` decorator. Additionally, any methods that utilize the defined quota must be annotated using the `ScheduledMethod` decorator.
 
     @ScheduledClass({
         interval: {
@@ -39,9 +39,21 @@ for applying quota for you class you have to annotate your class with `Scheduled
 
     }
 
+# Benefits
+
+By leveraging the power of two decorators, you can exercise precise control over the manner in which you call your external services. These decorators provide you with the flexibility to customize and fine-tune your approach, ensuring that your interactions with external services align with your specific requirements and objectives.
+
+# Use Case:
+
+In certain cases, exceeding a certain threshold when making calls to external services can result in your service being banned. In such situations, it becomes essential to have control over the frequency of your calls to these external services. These decorators offer a solution to effectively manage and regulate the number of times you can call external services, helping you avoid any potential issues or restrictions.
+
 # Todo:
 
-- [ ] adding redis support for multi service instances
-- [ ] get a name from class decorator which might be sharable between different classes
+- [ ] **Adding Redis support for multi-service instances:** Enhance the functionality of your multi-service instances by incorporating Redis support. This addition will enable efficient management and communication between different service instances.
+
+- [ ] **Obtaining a sharable name from the class decorator**: Utilize a class decorator to obtain a sharable name that can be used across different classes. This approach promotes consistency and ease of use, allowing for seamless integration and collaboration between classes.
+- [ ] **Adding a logger for debugging purposes:** For effective debugging and troubleshooting, consider adding a logger to your codebase. This logging mechanism will assist in identifying and resolving issues, providing valuable insights for error analysis and optimization.
 
 # Known Issues:
+
+**Keywords:** rate-limter, call governance, quota enforcement
