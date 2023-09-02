@@ -39,6 +39,29 @@ To implement a quota for your class, you will need to annotate your class with t
 
     }
 
+# Options
+
+## ScheduledClass
+
+    {
+        // you can adjust maximum usage a weight in your classes that can be consumed
+
+        interval: {
+            duration: 5,        // 5 second
+            size: 'SECOND',     // default: SECOND
+            maxWeight: 300,     // The maximum weight that can be consumed within a 5-second interval will be reset after each 5-second period.
+            cache: 'MEMORY',    // cache can be MEMORY
+        }
+    }
+
+## ScheduledMethod
+
+    {
+        name: 'f2',      // for logging purpose
+        weight: 250      // Whenever this function is invoked, the specified amount will be subtracted from the maximum weight.
+
+    }
+
 # Benefits
 
 By leveraging the power of two decorators, you can exercise precise control over the manner in which you call your external services. These decorators provide you with the flexibility to customize and fine-tune your approach, ensuring that your interactions with external services align with your specific requirements and objectives.
