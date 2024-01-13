@@ -6,19 +6,19 @@ export class RateLimiterService implements IRateLimiter {
   cacheKey = `c`;
   constructor(
     private name: string,
-    private intevalMS: number,
+    private intervalMS: number,
     private weight: number,
     private cache: CacheAbstract
   ) {
     this.cacheKey = `c_${this.name}`;
-    interval(intevalMS).subscribe(() => this.reset());
+    interval(intervalMS).subscribe(() => this.reset());
   }
 
   execute(title: string, weight: number) {
     const interval10ms = interval(1);
     return new Promise((resolve) => {
-      const subscribeId = interval10ms.subscribe(() => {
-        const maxUsed = this.cache.getWeight(this.cacheKey) ?? 0;
+      const subscribeId = interval10ms.subscribe(async () => {
+        const maxUsed = (await this.cache.getWeight(this.cacheKey)) ?? 0;
         if (maxUsed + weight <= this.weight) {
           this.cache.setWeight(this.cacheKey, maxUsed + weight);
           subscribeId.unsubscribe();

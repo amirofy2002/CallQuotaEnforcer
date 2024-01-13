@@ -6,6 +6,7 @@ import { ScheduledClassOptions } from "../../../core/types/scheduled-class.optio
 import { SCHEDULED_CLASS_SYMBOLS } from "../../../core/types/symols";
 import { generateRandomString } from "../../../core/util/get-random-string";
 import { MemoryCache } from "../cache/memory-cache";
+import { RedisCache } from "../cache/redis-cache";
 
 export function ScheduledClass(options: ScheduledClassOptions) {
   return function afterObjectCreation<T extends { new (...args: any[]): {} }>(
@@ -30,7 +31,10 @@ export function ScheduledClass(options: ScheduledClassOptions) {
           options.interval.maxWeight,
           options.interval.cache == "MEMORY"
             ? new MemoryCache()
-            : new MemoryCache()
+            : new RedisCache(
+                options?.interval?.cache?.host,
+                options?.interval?.cache?.port
+              )
         );
       }
 
