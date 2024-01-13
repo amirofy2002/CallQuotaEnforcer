@@ -60,7 +60,7 @@ To implement a quota for your class, you will need to annotate your class with t
             duration: 5,        // 5 second
             size: 'SECOND',     // default: SECOND
             maxWeight: 300,     // The maximum weight that can be consumed within a 5-second interval will be reset after each 5-second period.
-            cache: 'MEMORY',    // cache can be MEMORY
+            cache: 'MEMORY',    // cache can be MEMORY or REDIS { host:x.x.x.x, port: 6379 }
         }
     }
 

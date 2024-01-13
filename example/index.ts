@@ -12,7 +12,7 @@ class TestClass {
   start() {
     this.function1();
   }
-  @ScheduledMethod({ name: "method1", weight: 5 })
+  @ScheduledMethod({ name: "method1", weight: 200 })
   async function1() {
     console.log("execution of function 1");
     this.function2();
