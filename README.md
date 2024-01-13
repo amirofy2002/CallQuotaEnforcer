@@ -82,7 +82,7 @@ In certain cases, exceeding a certain threshold when making calls to external se
 
 # Todo:
 
-- [ ] **Adding Redis support for multi-service instances:** Enhance the functionality of your multi-service instances by incorporating Redis support. This addition will enable efficient management and communication between different service instances.
+- [x] **Adding Redis support for multi-service instances:** Enhance the functionality of your multi-service instances by incorporating Redis support. This addition will enable efficient management and communication between different service instances.
 
 - [ ] **Obtaining a sharable name from the class decorator**: Utilize a class decorator to obtain a sharable name that can be used across different classes. This approach promotes consistency and ease of use, allowing for seamless integration and collaboration between classes.
 - [ ] **Adding a logger for debugging purposes:** For effective debugging and troubleshooting, consider adding a logger to your codebase. This logging mechanism will assist in identifying and resolving issues, providing valuable insights for error analysis and optimization.
