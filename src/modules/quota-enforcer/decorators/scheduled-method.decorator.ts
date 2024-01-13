@@ -33,7 +33,7 @@ export function ScheduledMethod(options?: ScheduledMethodOptions) {
     const observer = new CommandBusObserver(originalMethod, options);
     commandBus.pipe(filter((x) => x.name == uniqueName)).subscribe(observer);
 
-    target["_obsrver_" + uniqueName] = observer;
+    target["_observer_" + uniqueName] = observer;
 
     descriptor.value = async function (...args) {
       // Perform any pre-execution logic here
@@ -48,13 +48,13 @@ export function ScheduledMethod(options?: ScheduledMethodOptions) {
         code: rnd,
       });
 
-      const getResposne = new Promise((resolve) => {
+      const getResponse = new Promise((resolve) => {
         responseBus.pipe(filter((x) => x.code == rnd)).subscribe((x) => {
           resolve(x.payload);
         });
       });
 
-      const result = await getResposne;
+      const result = await getResponse;
       // Perform any post-execution logic here
       return result;
     };
