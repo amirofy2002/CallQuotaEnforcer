@@ -1,6 +1,6 @@
 {
   "name": "call-quota-enforcer",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "enforce quota for calling external services",
   "main": "dist/index",
   "types": "dist/index",
