@@ -22,6 +22,19 @@ export function ScheduledClass(options: ScheduledClassOptions) {
       }
 
       ____init___() {
+        const cache =
+          options.interval.cache == "MEMORY"
+            ? new MemoryCache()
+            : new RedisCache(
+                options?.interval?.cache?.host,
+                options?.interval?.cache?.port
+              );
+        process.on("SIGINT", async () => {
+          console.log("cleaning up");
+          await cache.cleanup();
+          process.exit(0);
+        });
+
         this["test"] = "qq";
         this[SCHEDULED_CLASS_SYMBOLS.OPTIONS] = options;
         this[SCHEDULED_CLASS_SYMBOLS.EXECUTION_CONTEXT] = {};
@@ -29,12 +42,7 @@ export function ScheduledClass(options: ScheduledClassOptions) {
           this.__id__,
           this.___getDuration(),
           options.interval.maxWeight,
-          options.interval.cache == "MEMORY"
-            ? new MemoryCache()
-            : new RedisCache(
-                options?.interval?.cache?.host,
-                options?.interval?.cache?.port
-              )
+          cache
         );
       }
 

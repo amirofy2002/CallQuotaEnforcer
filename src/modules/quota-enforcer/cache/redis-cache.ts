@@ -7,6 +7,18 @@ export class RedisCache implements CacheAbstract {
     this.cache = new ioredis(port, host);
   }
 
+  async cleanup() {
+    try {
+      console.log("redis cleanup");
+      const keys = await this.cache.keys("rate:*");
+      console.log(keys);
+      this.cache.del(...keys);
+      console.log("redis cleanup:done");
+    } catch (err) {
+      // silent error
+    }
+  }
+
   setWeight(name: string, weight: number): void {
     this.cache.set(`rate:${name}`, `${weight}`);
   }

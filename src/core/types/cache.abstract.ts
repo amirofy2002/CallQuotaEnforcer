@@ -3,4 +3,5 @@ export abstract class CacheAbstract {
   abstract getWeight(
     name: string
   ): Promise<number | undefined> | number | undefined;
+  abstract cleanup(): Promise<void>;
 }
